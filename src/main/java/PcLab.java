@@ -4,7 +4,7 @@ public class PcLab {
     private Motherboard motherboard;
     private Monitor monitor;
 
-     public void PC(Case pcCase, Motherboard motherboard, Monitor monitor) {
+    public PcLab(Case pcCase, Motherboard motherboard, Monitor monitor) {
         this.pcCase = pcCase;
         this.motherboard = motherboard;
         this.monitor = monitor;
@@ -34,8 +34,17 @@ public class PcLab {
         this.monitor = monitor;
     }
 
+    @Override
+    public String toString() {
+        return "PcLab{" +
+                "pcCase=" + pcCase +
+                ", motherboard=" + motherboard +
+                ", monitor=" + monitor +
+                '}';
+    }
+
     void drawLogo() {
-         monitor.drawPixel(50, 50, "blue");
+         monitor.drawPixel(5,5,"red");
     }
 
     public void description() {
@@ -46,7 +55,7 @@ public class PcLab {
 
     public void powerUp() {
          pcCase.pressPowerButton();
-         monitor.drawLogo();
+         drawLogo();
          motherboard.loadProgram("Windows 10");
     }
 
